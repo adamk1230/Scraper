@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/Scraper");
+mongoose.connect("mongodb://heroku_kxtp2299:f296blvn7215ikoqs59t082taa@ds137197.mlab.com:37197/heroku_kxtp2299");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -156,7 +156,8 @@ app.get("/notes/:id", function(req, res){
   })
 })
 
+var port = process.env.PORT || 3000;
 
-app.listen(3000, function() {
-  console.log("App running on port 3000!");
+app.listen(port, function() {
+  // console.log("App running on port 3000!");
 });
