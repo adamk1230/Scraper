@@ -25,17 +25,19 @@ $(document).on("click", "p", function() {
       // The title:
       $("#notes").append("<h2>");
       // Entering a new title:
-      $("#notes").append("<input id='titleinput' name='title' >");
+      $("#notes").append("<input id='titleinput' name='title' placeholder='Your Name'>");
       // Text body:
-      $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+      $("#notes").append("<textarea id='bodyinput' name='body' placeholder='Comments Here'></textarea>");
       // Button to submit a new note with also the ID attached. 
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
-
+      $("#notes").append("<br>");
+      $("#notes").append("<h2>Comments:</h2>");
       // If there's a note in the article. Also included a button so that the user can delete the note from the page:
       if (data.note) {
         var notes = data.note; 
         notes.forEach(function(notes){
-          $("#notes").append("<p><b>" + notes.title + "</b></p>");
+          
+          $("#notes").append("<h3>" + notes.title + "</h3>");
           $("#notes").append("<p>" + notes.body + "</p>");
           $("#notes").append("<form action='/notes/" + notes._id + "' method='get'><button type='submit' class='btn btn-primary'>Delete!</button></form");
         })
